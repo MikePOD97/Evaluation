@@ -55,6 +55,7 @@ public class RoboMove : MonoBehaviour {
 
         if (transform.position.y < -3) onGround = true;
         if (Input.GetKeyDown(KeyCode.Space) && onGround == true ) Jump();
+        if (Input.GetMouseButtonDown(0)) Punch();
         animator.SetBool("isIdle", isIdle);
         animator.SetBool("isWalking", isWalking);
         transform.rotation = Quaternion.Euler(rot);
@@ -65,5 +66,11 @@ public class RoboMove : MonoBehaviour {
         GetComponent<Rigidbody>().velocity = Vector2.up * jumpSpeed;
         onGround = false;
         animator.SetTrigger("Jump");
+    }
+
+    private void Punch()
+    {
+        animator.SetTrigger("Punch");
+        animator.ResetTrigger("Jump");
     }
 }
