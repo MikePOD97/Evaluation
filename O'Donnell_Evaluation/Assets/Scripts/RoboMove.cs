@@ -8,6 +8,10 @@ public class RoboMove : MonoBehaviour {
     //Variables to freely change the robot's position and speed
     private Vector3 pos;
     private Vector3 speed;
+    private Vector3 rot;
+    private bool jumped = false;
+    public bool onGround = false;
+    public int jumpSpeed = 3;
     private Animator animator;
     private bool isIdle = true;
     private bool isWalking = false;
@@ -25,31 +29,41 @@ public class RoboMove : MonoBehaviour {
         if (Input.GetKey(KeyCode.D))
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed.x);
-            if(!isWalking)
+            if (transform.rotation.y != 90) rot = new Vector3(0, 90, 0);
+            if (!isWalking)
             {
                 isWalking = true;
                 isIdle = false;
-               
             }
         }
            
         else if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.forward * Time.deltaTime * (-1 * speed.x));
+            transform.Translate((-1 * Vector3.forward) * Time.deltaTime * (-1 * speed.x));
+            if (transform.rotation.y != -90) rot = new Vector3(0, -90, 0);
             if (!isWalking)
             {
                 isWalking = true;
                 isIdle = false;
-               
             }
         }
         else
         {
             isWalking = false;
             isIdle = true;
-          
         }
+
+        if (transform.position.y < -3) onGround = true;
+        if (Input.GetKeyDown(KeyCode.Space) && onGround == true ) Jump();
         animator.SetBool("isIdle", isIdle);
         animator.SetBool("isWalking", isWalking);
+        transform.rotation = Quaternion.Euler(rot);
+    }
+
+    private void Jump()
+    {
+        GetComponent<Rigidbody>().velocity = Vector2.up * jumpSpeed;
+        onGround = false;
+        animator.SetTrigger("Jump");
     }
 }
