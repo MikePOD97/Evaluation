@@ -5,7 +5,6 @@ Shader "Unlit/Outline"
 	Properties
 	{
 		_Color ("Main Color", Color) = (0.5, 0.5, 0.5, 1)
-		_MainTex ("Base (RGB)", 2D) = "white" { }
 		_Outline ("Outline width", Range(0.0, 0.03)) = .005
 		_OutlineColor ("Outline Color", Color) = (0,0,0,1)
 	}
@@ -78,14 +77,6 @@ ENDCG
 				Ambient[_Color]
 			}
 			Lighting On
-			SetTexture[_MainTex]
-			{
-				ConstantColor[_Color]
-				Combine texture * constant
-			}
-			SetTexture[_MainTex] {
-				Combine previous * primary DOUBLE
-			}
 		}
 	}
 
@@ -107,7 +98,7 @@ CGPROGRAM
 #pragma vertex vert
 ENDCG
 
-			SetTexture [_MainTex] {combine primary}
+			
 		}
 		
 		Pass 
@@ -122,19 +113,11 @@ ENDCG
 				Ambient [_Color]
 			}
 			Lighting On
-			SetTexture [_MainTex]
-			{
-				ConstantColor [_Color]
-				Combine texture * constant
-			}
-			SetTexture [_MainTex]
-			{
-				Combine previous * primary DOUBLE
-			}
 		}
 	}
 
 	Fallback "Diffuse"
+	CustomEditor "CustomShaderGUI"
 
 	/*
 		I'm going to be honest here, based on the short time frame of this assignment and the other work I have to do for

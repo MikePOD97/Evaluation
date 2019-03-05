@@ -12,7 +12,7 @@ public class RoboMove : MonoBehaviour {
     private bool jumped = false;
     public bool onGround = false;
     public int jumpSpeed = 3;
-    private Animator animator;
+    public Animator animator;
     private bool isIdle = true;
     private bool isWalking = false;
 	void Start ()
@@ -20,13 +20,12 @@ public class RoboMove : MonoBehaviour {
         //Initialize them
         pos = new Vector3(0, 0, 0);
         speed = new Vector3(2f, 0, 0);
-        animator = GameObject.Find("PlayerRobot").GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetKey(KeyCode.D))
+        if ((gameObject.tag == "Player 1" && Input.GetKey(KeyCode.D)) || (gameObject.tag == "Player 2" && Input.GetKey(KeyCode.RightArrow)))
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed.x);
             if (transform.rotation.y != 90) rot = new Vector3(0, 90, 0);
@@ -37,7 +36,7 @@ public class RoboMove : MonoBehaviour {
             }
         }
            
-        else if (Input.GetKey(KeyCode.A))
+        else if ((gameObject.tag == "Player 1" && Input.GetKey(KeyCode.A)) || (gameObject.tag == "Player 2" && Input.GetKey(KeyCode.LeftArrow)))
         {
             transform.Translate((-1 * Vector3.forward) * Time.deltaTime * (-1 * speed.x));
             if (transform.rotation.y != -90) rot = new Vector3(0, -90, 0);
@@ -54,8 +53,8 @@ public class RoboMove : MonoBehaviour {
         }
 
         if (transform.position.y < -3) onGround = true;
-        if (Input.GetKeyDown(KeyCode.Space) && onGround == true ) Jump();
-        if (Input.GetMouseButtonDown(0)) Punch();
+        if ((gameObject.tag == "Player 1" && Input.GetKeyDown(KeyCode.W) && onGround == true) || (gameObject.tag == "Player 2" && Input.GetKeyDown(KeyCode.UpArrow) && onGround == true)) Jump();
+        if ((gameObject.tag == "Player 1" && Input.GetKeyDown(KeyCode.S)) || (gameObject.tag == "Player 2" && Input.GetKeyDown(KeyCode.DownArrow))) Punch();
         animator.SetBool("isIdle", isIdle);
         animator.SetBool("isWalking", isWalking);
         transform.rotation = Quaternion.Euler(rot);
