@@ -18,7 +18,7 @@ public class MainMenu : MonoBehaviour {
     {
 		
 	}
-
+    //Go to the game
     void LoadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

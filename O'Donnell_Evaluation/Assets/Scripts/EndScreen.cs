@@ -10,6 +10,7 @@ public class EndScreen : MonoBehaviour {
     public Text field;
     public Button button;
 	void Start () {
+        //Set the text according to who won the match
         if (PlayerPrefs.GetString("Loser") == "Player 1") field.text = "Player 2 Wins!";
         else field.text = "Player 1 Wins!";
         button.onClick.AddListener(LoadLevel);
@@ -19,7 +20,7 @@ public class EndScreen : MonoBehaviour {
 	void Update () {
 		
 	}
-
+    //Go back to the game
     void LoadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
