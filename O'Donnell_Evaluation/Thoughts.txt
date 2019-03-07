@@ -1,0 +1,12 @@
+So the game is done! 
+
+As a game by itself, I realize it isn't the most compelling, or polished. I had some struggles with animation (as I'm fairly new to the Unity Animator)
+so sometimes animations won't interrupt each other properly. This can lead to a few issues to registering the punch hit. Also I'm sad I couldn't really do much
+personal work with the shader. I'm not very well versed in shader programming so I just used a reference online, did my best to understand it, and edited it where I could.
+
+But other than that, I am proud of the work I was able to do in 5 days. This was certainly a challenge with balancing my other university work, maintaining a social life, 
+and sleeping. In the end it came out to something that I'm satisfied with, and I'm grateful for the opportunity to test myself.
+
+Thank you,
+
+Mike O'Donnell
