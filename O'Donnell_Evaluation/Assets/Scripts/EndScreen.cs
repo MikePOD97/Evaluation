@@ -13,13 +13,13 @@ public class EndScreen : MonoBehaviour {
         //Set the text and images according to who won the match
         if (PlayerPrefs.GetString("Loser") == "Player 1")
         {
-            field.text = "Player 2 Wins!";
+            field.text = "Player Two Wins!";
             GameObject.Find("P2 Sad").SetActive(false);
             GameObject.Find("P1 Happy").SetActive(false);
         } 
         else 
         {
-            field.text = "Player 1 Wins!";
+            field.text = "Player One Wins!";
             GameObject.Find("P1 Sad").SetActive(false);
             GameObject.Find("P2 Happy").SetActive(false);
         }

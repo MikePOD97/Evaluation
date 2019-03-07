@@ -65,7 +65,7 @@ public class RoboMove : MonoBehaviour {
         if (transform.position.y < -3) onGround = true;
         if ((gameObject.tag == "Player 1" && Input.GetKeyDown(KeyCode.W) && onGround == true) || (gameObject.tag == "Player 2" && Input.GetKeyDown(KeyCode.UpArrow) && onGround == true)) Jump();
         //Controls for punching
-        if ((gameObject.tag == "Player 1" && Input.GetKeyDown(KeyCode.S)) || (gameObject.tag == "Player 2" && Input.GetKeyDown(KeyCode.DownArrow))) Punch();
+        if ((gameObject.tag == "Player 1" && Input.GetKeyDown(KeyCode.S)) && punchTime == 0 || (gameObject.tag == "Player 2" && Input.GetKeyDown(KeyCode.DownArrow) && punchTime == 0)) Punch();
         //Manage animations
         animator.SetBool("isIdle", isIdle);
         animator.SetBool("isWalking", isWalking);
