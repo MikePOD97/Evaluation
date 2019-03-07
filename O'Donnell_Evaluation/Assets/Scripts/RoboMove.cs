@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RoboMove : MonoBehaviour {
 
@@ -63,7 +64,8 @@ public class RoboMove : MonoBehaviour {
         transform.rotation = Quaternion.Euler(rot);
         if(health == 0)
         {
-            Destroy(this.gameObject);
+            PlayerPrefs.SetString("Loser", gameObject.tag);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
