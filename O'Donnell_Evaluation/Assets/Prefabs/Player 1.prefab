@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 114077290550092698}
   - component: {fileID: 54069248303706796}
   - component: {fileID: 65471541775443550}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player 1
   m_TagString: Player 1
   m_Icon: {fileID: 0}
@@ -176,6 +176,24 @@ GameObject:
   m_Layer: 0
   m_Name: Rt_Ankle_jnt
   m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1377131432787780
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4387651887730268}
+  - component: {fileID: 33403999284942328}
+  - component: {fileID: 23379437889196290}
+  - component: {fileID: 65604146541970460}
+  m_Layer: 8
+  m_Name: P1 HitBox
+  m_TagString: P1 Hitbox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -456,7 +474,8 @@ Transform:
   m_LocalRotation: {x: 0.017403565, y: 0.4001408, z: -0.02331627, w: 0.9159917}
   m_LocalPosition: {x: -0.23741199, y: 0.015296474, z: 0.00026613145}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4387651887730268}
   m_Father: {fileID: 4185110228114334}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -472,6 +491,19 @@ Transform:
   m_Children:
   - {fileID: 4046772084048614}
   m_Father: {fileID: 4464853272718610}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4387651887730268
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377131432787780}
+  m_LocalRotation: {x: -0.023531742, y: -0.9307507, z: 0.009223131, w: 0.36477995}
+  m_LocalPosition: {x: -0.10819967, y: 0.008261099, z: 0.030162133}
+  m_LocalScale: {x: 1.3216425, y: 0.9791109, z: 1.7719539}
+  m_Children: []
+  m_Father: {fileID: 4305640017676406}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4416984663307044
@@ -742,6 +774,48 @@ Transform:
   m_Father: {fileID: 4416984663307044}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &23379437889196290
+MeshRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377131432787780}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &33403999284942328
+MeshFilter:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377131432787780}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54069248303706796
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -767,8 +841,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.5108957, z: 0.57889175}
-  m_Center: {x: 2.1341429e-16, y: 0.24455214, z: 0.07751768}
+  m_Size: {x: 1, y: 0.07377386, z: 0.57889175}
+  m_Center: {x: 2.134144e-16, y: 0.025991201, z: 0.07751769}
+--- !u!65 &65604146541970460
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1377131432787780}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000006, y: 0.99999994, z: 1.0000005}
+  m_Center: {x: 0.00000047683716, y: 0, z: 0.00000071525574}
 --- !u!95 &95179788891304850
 Animator:
   serializedVersion: 3
@@ -798,6 +884,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de0e53d107310f140993f6655ff07621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
   onGround: 0
   jumpSpeed: 7
   animator: {fileID: 95179788891304850}

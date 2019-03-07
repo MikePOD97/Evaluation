@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Player 1
   - Player 2
+  - P1 Hitbox
+  - P2 Hitbox
   layers:
   - Default
   - TransparentFX
@@ -16,10 +18,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - P1 Punch
+  - P2 Punch
+  - P1 Rigid
+  - P2 Rigid
   - 
   - 
   - 
